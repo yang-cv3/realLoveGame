@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { SimulateRequest, SimulateResponse } from "@/types";
 import { buildSystemPrompt, buildUserPrompt } from "./prompt";
-import { SimulateResponseSchema, GeminiResponseSchema } from "./schema";
+import { SimulateResponseSchema } from "./schema";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
 
@@ -11,7 +11,6 @@ export async function simulate(req: SimulateRequest): Promise<SimulateResponse> 
     systemInstruction: buildSystemPrompt(req.relation_type, req.partner_tendency),
     generationConfig: {
       responseMimeType: "application/json",
-      responseSchema: GeminiResponseSchema,
     },
   });
 
