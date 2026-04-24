@@ -22,7 +22,9 @@ export async function simulate(req: SimulateRequest): Promise<SimulateResponse> 
     const text = result.response.text();
     console.log("[gemini] raw response:", text.slice(0, 200));
     const parsed = JSON.parse(text);
-    return SimulateResponseSchema.parse(parsed);
+    const validated = SimulateResponseSchema.parse(parsed);
+    // 선택지 역할 고정: 0=관계상승(BEST), 1=관계유지, 2=관계파탄(WORST)
+    return { ...validated, best_index: 0, worst_index: 2 };
   } catch (err) {
     console.error("[gemini] error:", err);
     throw err;
