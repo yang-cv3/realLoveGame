@@ -70,7 +70,7 @@ export default function Home() {
       <div className="max-w-lg mx-auto px-4 pt-10">
         <div className="text-center mb-8">
           <p className="text-4xl mb-2">💘</p>
-          <h1 className="text-2xl font-black text-gray-900">RealLoveGame</h1>
+          <h1 className="text-2xl font-black text-gray-900">오빠 나 살쪘어?</h1>
           <p className="text-sm text-gray-400 mt-1">카톡 대화를 올리면 AI가 최적의 답장을 알려줘</p>
         </div>
 
